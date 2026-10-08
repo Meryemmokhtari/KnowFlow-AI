@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    
+
     <Compile Include="Common\Result.cs" />
     <Compile Include="Constants\Permissions.cs" />
     <Compile Include="Constants\Roles.cs" />

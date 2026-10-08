@@ -1,4 +1,4 @@
-﻿
+
 using AuthService.DTOs;
 using AuthService.Interfaces;
 using AuthService.Models;
@@ -615,7 +615,7 @@ namespace AuthService.Services
         }
 
         // =====================================================
-        // MAP USER → DTO
+        // MAP USER ? DTO
         // =====================================================
 
         private static UserDto MapToUserDto(
@@ -649,4 +649,3 @@ namespace AuthService.Services
         }
     }
 }
-
