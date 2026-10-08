@@ -1,0 +1,1220 @@
+/* =========================================================
+   KNOWFLOW AI
+   DASHBOARD LAYOUT
+   PREMIUM DARK — CYAN / BLUE / PURPLE
+   FINAL VERSION
+   ========================================================= */
+
+/* =========================================================
+   ROOT LAYOUT
+   ========================================================= */
+
+.dashboard-layout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 5%,
+      rgba(124, 58, 237, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 25% 80%,
+      rgba(14, 165, 233, 0.05),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #07111f 0%,
+      #091426 48%,
+      #0c1024 100%
+    );
+
+  color: #f8fafc;
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+.dashboard-layout *,
+.dashboard-layout *::before,
+.dashboard-layout *::after {
+  box-sizing: border-box;
+}
+
+.dashboard-layout button,
+.dashboard-layout input,
+.dashboard-layout textarea,
+.dashboard-layout select {
+  font-family: inherit;
+}
+
+.dashboard-layout button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dashboard-layout a {
+  text-decoration: none;
+}
+
+.dashboard-layout svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  position: relative;
+  z-index: 100;
+
+  width: 248px;
+  min-width: 248px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 13px 14px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 24, 43, 0.98) 0%,
+      rgba(8, 19, 36, 0.99) 55%,
+      rgba(7, 15, 31, 1) 100%
+    );
+
+  border-right: 1px solid rgba(148, 163, 184, 0.10);
+
+  box-shadow:
+    12px 0 40px rgba(0, 0, 0, 0.18),
+    inset -1px 0 0 rgba(56, 189, 248, 0.025);
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.18) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.18);
+}
+
+
+/* =========================================================
+   SIDEBAR TOP GLOW
+   ========================================================= */
+
+.sidebar::before {
+  content: "";
+
+  position: absolute;
+  top: -100px;
+  left: -80px;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  background: rgba(34, 211, 238, 0.055);
+
+  filter: blur(55px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGO AREA
+   ========================================================= */
+
+.sidebar-logo {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  min-height: 66px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(56, 189, 248, 0.08);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(21, 43, 69, 0.72),
+      rgba(13, 27, 49, 0.65)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+/*
+   Force Logo component to stay compact.
+   Works with img / svg / common Logo wrappers.
+*/
+
+.sidebar-logo img {
+  display: block;
+
+  width: auto;
+  max-width: 145px;
+  height: 42px;
+
+  object-fit: contain;
+}
+
+.sidebar-logo svg {
+  width: auto;
+  max-width: 145px;
+  height: 42px;
+}
+
+
+/* =========================================================
+   LOGO WRAPPER FALLBACK
+   ========================================================= */
+
+.sidebar-logo > * {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   MOBILE CLOSE
+   ========================================================= */
+
+.sidebar-mobile-close {
+  display: none;
+
+  position: absolute;
+  top: 17px;
+  right: 14px;
+
+  width: 34px;
+  height: 34px;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 10px;
+
+  background: rgba(15, 30, 52, 0.9);
+
+  color: #9fb0c7;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.sidebar-mobile-close:hover {
+  color: #ffffff;
+
+  border-color: rgba(56, 189, 248, 0.28);
+
+  background: rgba(56, 189, 248, 0.10);
+
+  transform: rotate(3deg);
+}
+
+
+/* =========================================================
+   SIDEBAR TITLE
+   ========================================================= */
+
+.sidebar-title {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+
+  padding: 8px 8px 3px;
+
+  color: #9cabc0;
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  font-weight: 750;
+
+  letter-spacing: 0.55px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SIDEBAR ROLE
+   ========================================================= */
+
+.sidebar-role {
+  position: relative;
+  z-index: 1;
+
+  width: fit-content;
+
+  min-height: 29px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin: 4px 7px 15px;
+
+  padding: 5px 9px;
+
+  border: 1px solid rgba(56, 189, 248, 0.13);
+
+  border-radius: 999px;
+
+  background: rgba(56, 189, 248, 0.055);
+
+  color: #66dcfa;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+}
+
+.sidebar-role svg {
+  width: 13px;
+  height: 13px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.sidebar nav {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   MENU ITEM
+   ========================================================= */
+
+.menu-item {
+  position: relative;
+
+  width: 100%;
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 0 12px;
+
+  border: 1px solid transparent;
+  border-radius: 11px;
+
+  color: #8d9db4;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.menu-item svg {
+  width: 18px;
+  height: 18px;
+
+  color: #70839c;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.menu-item span {
+  min-width: 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   MENU HOVER
+   ========================================================= */
+
+.menu-item:hover {
+  color: #e8f5ff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(56, 189, 248, 0.075),
+      rgba(96, 165, 250, 0.035)
+    );
+
+  border-color: rgba(56, 189, 248, 0.10);
+
+  transform: translateX(2px);
+}
+
+.menu-item:hover svg {
+  color: #55dfff;
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   ACTIVE MENU
+   ========================================================= */
+
+.menu-item.active {
+  color: #f4fbff;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(34, 211, 238, 0.15),
+      rgba(59, 130, 246, 0.10),
+      rgba(139, 92, 246, 0.07)
+    );
+
+  border-color: rgba(56, 189, 248, 0.20);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.menu-item.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: -1px;
+  top: 8px;
+  bottom: 8px;
+
+  width: 3px;
+
+  border-radius: 0 5px 5px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #42e7ff,
+      #6d8cff,
+      #b76cff
+    );
+
+  box-shadow:
+    0 0 14px rgba(56, 189, 248, 0.45);
+}
+
+.menu-item.active svg {
+  color: #48e4ff;
+
+  filter:
+    drop-shadow(
+      0 0 7px rgba(56, 189, 248, 0.28)
+    );
+}
+
+
+/* =========================================================
+   ADMINISTRATION LABEL
+   ========================================================= */
+
+.sidebar-section-label {
+  position: relative;
+  z-index: 1;
+
+  margin: 19px 8px 8px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid rgba(148, 163, 184, 0.075);
+
+  color: #61748e;
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.25px;
+
+  text-transform: uppercase;
+}
+
+.sidebar-section-label::after {
+  content: "";
+
+  display: block;
+
+  width: 25px;
+  height: 2px;
+
+  margin-top: 6px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #38dfff,
+      #8b5cf6
+    );
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   ADMIN MENU — SUBTLE DIFFERENCE
+   ========================================================= */
+
+.sidebar-section-label + .sidebar-user {
+  margin-top: auto;
+}
+
+
+/* =========================================================
+   USER CARD
+   ========================================================= */
+
+.sidebar-user {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+
+  min-height: 59px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: auto;
+  margin-bottom: 8px;
+
+  padding: 9px;
+
+  border: 1px solid rgba(148, 163, 184, 0.08);
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 35, 58, 0.78),
+      rgba(11, 24, 43, 0.72)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   USER AVATAR
+   ========================================================= */
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+
+  min-width: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(56, 189, 248, 0.20);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.20),
+      rgba(124, 58, 237, 0.22)
+    );
+
+  color: #a9edff;
+
+  font-size: 12px;
+
+  font-weight: 850;
+
+  box-shadow:
+    0 0 18px rgba(56, 189, 248, 0.07);
+}
+
+
+/* =========================================================
+   USER INFO
+   ========================================================= */
+
+.user-info {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.user-info h4 {
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #e8f2fc;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.user-info p {
+  margin: 0;
+
+  color: #687c97;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  text-transform: capitalize;
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.logout-btn {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  min-height: 41px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px solid rgba(239, 68, 68, 0.10);
+
+  border-radius: 10px;
+
+  background: rgba(239, 68, 68, 0.035);
+
+  color: #a9b6c8;
+
+  font-size: 9px;
+
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.logout-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.logout-btn:hover {
+  color: #ff9b9b;
+
+  background: rgba(239, 68, 68, 0.075);
+
+  border-color: rgba(239, 68, 68, 0.20);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN AREA
+   ========================================================= */
+
+.dashboard-main {
+  min-width: 0;
+
+  flex: 1;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(139, 92, 246, 0.055),
+      transparent 25%
+    );
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.dashboard-topbar {
+  position: relative;
+  z-index: 50;
+
+  width: 100%;
+
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 0 28px;
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.085);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(9, 21, 38, 0.94),
+      rgba(8, 18, 34, 0.82)
+    );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   TOPBAR TITLE
+   ========================================================= */
+
+.topbar-title {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.topbar-title h1 {
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #f3f8ff;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.25px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.topbar-title span {
+  color: #61738d;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.65px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TOPBAR ACTIONS
+   ========================================================= */
+
+.topbar-actions {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+/* =========================================================
+   TOPBAR USER
+   ========================================================= */
+
+.topbar-user {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 5px 7px;
+
+  border: 1px solid transparent;
+
+  border-radius: 11px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.topbar-user:hover {
+  border-color: rgba(56, 189, 248, 0.10);
+
+  background: rgba(56, 189, 248, 0.045);
+}
+
+
+/* =========================================================
+   TOPBAR AVATAR
+   ========================================================= */
+
+.topbar-avatar {
+  width: 33px;
+  height: 33px;
+
+  min-width: 33px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  border: 1px solid rgba(56, 189, 248, 0.19);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.18),
+      rgba(124, 58, 237, 0.18)
+    );
+
+  color: #b4efff;
+
+  font-size: 11px;
+
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   TOPBAR USER INFO
+   ========================================================= */
+
+.topbar-user-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.topbar-user-info strong {
+  max-width: 145px;
+
+  overflow: hidden;
+
+  color: #e5edf8;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.topbar-user-info span {
+  max-width: 145px;
+
+  overflow: hidden;
+
+  color: #61738d;
+
+  font-size: 7px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.mobile-menu-btn {
+  display: none;
+
+  width: 38px;
+  height: 38px;
+
+  min-width: 38px;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(56, 189, 248, 0.14);
+
+  border-radius: 10px;
+
+  background: rgba(56, 189, 248, 0.055);
+
+  color: #72dfff;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(56, 189, 248, 0.11);
+
+  border-color: rgba(56, 189, 248, 0.25);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.dashboard-content {
+  min-width: 0;
+
+  flex: 1;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(56, 189, 248, 0.18)
+    transparent;
+}
+
+.dashboard-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dashboard-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background: rgba(56, 189, 248, 0.17);
+}
+
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.28);
+}
+
+
+/* =========================================================
+   MOBILE OVERLAY
+   ========================================================= */
+
+.sidebar-mobile-overlay {
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 90;
+
+  background: rgba(2, 6, 23, 0.68);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+.menu-item:focus-visible,
+.logout-btn:focus-visible,
+.mobile-menu-btn:focus-visible,
+.sidebar-mobile-close:focus-visible,
+.topbar-user:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.55);
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1200px
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .sidebar {
+    width: 232px;
+    min-width: 232px;
+  }
+
+  .dashboard-topbar {
+    padding: 0 22px;
+  }
+
+  .topbar-user-info strong,
+  .topbar-user-info span {
+    max-width: 120px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 950px
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 250px;
+    min-width: 250px;
+
+    transform: translateX(-105%);
+
+    transition:
+      transform 0.28s ease;
+
+    box-shadow:
+      18px 0 50px rgba(0, 0, 0, 0.30);
+  }
+
+  .sidebar.sidebar-mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-mobile-overlay {
+    display: block;
+  }
+
+  .sidebar-mobile-close {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .dashboard-main {
+    width: 100%;
+  }
+
+  .dashboard-topbar {
+    min-height: 66px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 700px
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .dashboard-topbar {
+    gap: 12px;
+
+    padding: 0 16px;
+  }
+
+  .topbar-title h1 {
+    font-size: 15px;
+  }
+
+  .topbar-user-info {
+    display: none;
+  }
+
+  .topbar-user {
+    padding: 4px;
+  }
+
+  .topbar-actions {
+    gap: 6px;
+  }
+
+  .topbar-avatar {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .sidebar {
+    width: 86%;
+    min-width: 86%;
+    max-width: 310px;
+  }
+
+  .dashboard-topbar {
+    min-height: 62px;
+
+    padding: 0 12px;
+  }
+
+  .mobile-menu-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .topbar-title {
+    flex: 1;
+  }
+
+  .topbar-title h1 {
+    font-size: 14px;
+  }
+
+  .topbar-title span {
+    font-size: 7px;
+  }
+
+  .topbar-user {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sidebar,
+  .menu-item,
+  .menu-item svg,
+  .logout-btn,
+  .mobile-menu-btn,
+  .sidebar-mobile-close,
+  .topbar-user {
+    transition: none !important;
+  }
+}
